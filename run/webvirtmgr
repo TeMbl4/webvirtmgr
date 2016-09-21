@@ -1,0 +1,31 @@
+### BEGIN INIT INFO
+# Provides:          webvirtmgr
+# Required-Start:    $local_fs $network
+# Required-Stop:     $local_fs
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: webvirtmgr
+# Description:       webvirtmgr
+### END INIT INFO
+
+
+case $1 in
+start)
+  echo "Starting WebVirtMgr"
+  /usr/bin/python /var/www/webvirtmgr/console/webvirtmgr-console > /dev/null 2>&1 &
+  /usr/bin/python /var/www/webvirtmgr/manage.py run_gunicorn -c /var/www/webvirtmgr/conf/gunicorn.conf.py > /dev/null 2>&1 &
+  ;;
+stop)
+  echo "Stoping WebVirtMgr"
+  kill -9 `ps ax | grep webvirtmgr | grep -v grep | awk '{print $1}' | tr -s '\n' ' '`
+  ;;
+restart)
+  $0 stop
+  $0 start
+  ;;
+*)
+  echo "Usage: $0  {start|stop|restart}"
+  exit 1
+  ;;
+esac
+exit 0
