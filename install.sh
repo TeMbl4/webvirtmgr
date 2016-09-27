@@ -8,7 +8,7 @@ read directory
 
 echo ""
 echo "Install Main Components for WebVirtMgr"
-apt-get install git python-pip python-libvirt python-libxml2 novnc nginx supervisor
+apt-get install git python-pip python-libvirt python-libxml2 novnc nginx supervisor dsniff
 echo ""
 cd $directory
 git pull
