@@ -11,6 +11,35 @@
 </head>
 
 <body>
+<aside ng-controller="SidebarController" class="ng-scope">
+    <div class="asideRemoveScrollbar">
+        <ul>
+	    <li><a href="{% url 'index' %}"><i class="fa fa-dashboard"></i>VM Controller</a></li>
+	    <li><a href="#"><i class="fa fa-dashboard"></i>Dashboard</a></li>
+	    <li><a href="{% url 'infrastructure' %}" title="{% trans "Show all host and vm's" %}"><i class="fa fa-bullhorn"></i>{% trans "Infrastructure" %}</a></li>
+            <li><a href="#"><i class="fa fa-exchange"></i>Firewall</a></li>
+            <li><a href="#"><i class="fa fa-wrench"></i>Tools</a></li>
+	    <li><a href="#"><i class="fa fa-cogs"></i>Settings</a></li>
+<!--            
+            <li ng-class="{'selected': path.indexOf('/my/encodings') === 0 || path.indexOf('/my/presets') === 0, 'hide': !hasPermissions(['ENCODING_VIEW','ENCODING_EDIT'])}" class="" style=""><a href="/my/encodings"><i class="fa fa-ticket"></i> Transcoders</a></li>
+            <li ng-class="{'selected': path.indexOf('/my/adinsertions') === 0 || path.indexOf('/my/admanagement') === 0, 'hide': !hasPermissions(['ADS_VIEW', 'ADS_EDIT'])}" class="selected" style=""><a href="/my/adinsertions"><i class="fa fa-eye"></i> Ad Insertions</a></li>
+            <li ng-class="{'selected': path.indexOf('/my/timeshift') === 0, 'hide': !hasPermissions(['TIMESHIFT_VIEW','TIMESHIFT_EDIT'])}"><a href="/my/timeshift_players"><i class="fa fa-clock-o"></i> Time Shifts</a></li>
+            <li class="has-sub" ng-class="{'selected': dvb.open, 'hide': !hasPermissions(['DVB_VIEW','DVB_EDIT'])}">
+                <a href="#" ng-click="dvb.open = !dvb.open" class="menu-item"><i class="fa fa-globe"></i> DVB-S/C/T </a><div class="arrow">&nbsp;</div>
+                <ul class="sub ng-hide" ng-show="dvb.open">
+                    <li ng-class="{'selected': path.indexOf('/my/dvb/scan') === 0, 'hide': !hasPermissions(['DVB_VIEW', 'DVB_EDIT'])}"><a href="/my/dvb/scan"> Scan</a></li>
+                    <li ng-class="{'selected': path.indexOf('/my/dvb/adapters') === 0, 'hide': !hasPermissions(['DVB_VIEW', 'DVB_EDIT'])}"><a href="/my/dvb/adapters"> Adapters</a></li>
+                    <li ng-class="{'selected': path.indexOf('/my/dvb/streams') === 0, 'hide': !hasPermissions(['DVB_VIEW', 'DVB_EDIT'])}"><a href="/my/dvb/streams"> Streams</a></li>
+                </ul>
+            </li>
+            <li ng-class="{'selected': path.indexOf('/my/extensions') === 0, 'hide': !hasPermissions(['EXTENSION_VIEW', 'EXTENSION_EDIT'])}"><a href="/my/extensions"><i class="fa fa-puzzle-piece"></i> Extensions</a></li>
+            <li ng-class="{'selected': path.indexOf('/my/firewall') === 0, 'hide': !hasPermissions(['FIREWALL_VIEW', 'FIREWALL_EDIT'])}"><a href="/my/firewall"><i class="fa fa-exchange"></i> Firewall</a></li>
+            <li ng-class="{'selected': path.indexOf('/my/users') === 0, 'hide': !hasPermissions(['USER_VIEW', 'USER_EDIT'])}"><a href="/my/users"><i class="fa fa-users"></i> Users</a></li>
+            <li ng-class="{'selected': path.indexOf('/my/tools') === 0, 'hide': !hasPermissions(['TOOLS_VIEW', 'TOOLS_EDIT'])}"><a href="/my/tools"><i class="fa fa-wrench"></i> Tools</a></li>
+            <li ng-class="{'selected': path.indexOf('/my/settings') === 0, 'hide': !hasPermissions(['SETTINGS_VIEW', 'SETTINGS_EDIT'])}"><a href="/my/settings"><i class="fa fa-cogs"></i> Settings</a></li> -->
+        </ul>
+    </div>
+</aside>
 <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
     <div class="container">
         <div class="navbar-header">
@@ -19,24 +48,16 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="{% url 'index' %}">Setplex VM Controller</a>
         </div>
         <div class="collapse navbar-collapse">
-            <ul class="nav navbar-nav">
-                <li>
-                    <a href="{% url 'infrastructure' %}"
-                       title="{% trans "Show all host and vm's" %}">{% trans "Infrastructure" %}</a>
-                </li>
-            </ul>
-
             <ul class="nav navbar-nav navbar-right">
                 {% if request.user.is_authenticated or user.is_authenticated %}
                     <li class="">
-                        <a href="{% url 'logout' %}">{% trans "Sign out" %}</a>
+                        <a href="{% url 'logout' %}"><i class="fa fa-sign-out">{% trans "Logout" %}</i></a>
                     </li>
                 {% else %}
                     <li class="">
-                        <a href="{% url 'login' %}">{% trans "Sign in" %}</a>
+                        <a href="{% url 'login' %}"><i class="fa fa-sign-in">{% trans "Sign in" %}</i></a>
                     </li>
                 {% endif %}
             </ul>

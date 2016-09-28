@@ -83,8 +83,8 @@ def get_workers():
 workers = get_workers()
 # worker_class = 'egg:gunicorn#eventlet'
 worker_connections = 1000
-timeout = 600
-keepalive = 2
+timeout = 120
+keepalive = 1
 
 #
 # Debugging

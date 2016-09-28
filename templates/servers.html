@@ -46,7 +46,7 @@
 
                 <h1>{% trans "Connections" %}</h1>
             </div>
-            <div class="row" role="main">
+            <div class="row box" role="main">
             {% if hosts_info %}
                 {% for host in hosts_info %}
                     <div class="col-xs-12 col-sm-4">
@@ -112,7 +112,7 @@
                                                                 <input type="hidden" name="host_id" value="{{ host.id }}">
                                                                 <input type="text" name="name" class="form-control"
                                                                        value="{{ host.name }}" maxlength="20" required
-                                                                       pattern="[a-z0-9\.\-_]+">
+                                                                       pattern="[a-zA-Z0-9\.\-_]+">
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
@@ -121,7 +121,7 @@
                                                             <div class="col-sm-6">
                                                                 <input type="text" name="hostname" class="form-control"
                                                                        value="{{ host.hostname }}" required
-                                                                       pattern="[a-z0-9\.\-_]+">
+                                                                       pattern="[a-zA-Z0-9\.\-_]+">
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
@@ -159,7 +159,7 @@
                                                                 <input type="hidden" name="host_id" value="{{ host.id }}">
                                                                 <input type="text" name="name" class="form-control"
                                                                        value="{{ host.name }}" maxlength="20" required
-                                                                       pattern="[a-z0-9\.\-_]+">
+                                                                       pattern="[a-zA-Z0-9\.\-_]+">
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
@@ -168,8 +168,9 @@
                                                             <div class="col-sm-6">
                                                                 <input type="text" name="hostname" class="form-control"
                                                                        value="{{ host.hostname }}" required
-                                                                       pattern="[a-z0-9\:\.\-_]+">
+                                                                       pattern="[0-9]+(?:\.[0-9]+){3}(:[0-9]+)?">
                                                             </div>
+                                               <!-- pattern="[a-zA-Z0-9\:\.\-_]+"> -->
                                                         </div>
                                                         <div class="form-group">
                                                             <label class="col-sm-4 control-label">{% trans "Username" %}</label>
@@ -196,7 +197,7 @@
                                                                 <input type="hidden" name="host_id" value="{{ host.id }}">
                                                                 <input type="text" name="name" class="form-control"
                                                                        value="{{ host.name }}" maxlength="20" required
-                                                                       pattern="[a-z0-9\.\-_]+">
+                                                                       pattern="[a-zA-Z0-9\.\-_]+">
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
@@ -205,8 +206,10 @@
                                                             <div class="col-sm-6">
                                                                 <input type="text" name="hostname" class="form-control"
                                                                        value="{{ host.hostname }}" required
-                                                                       pattern="[a-z0-9\:\.\-_]+">
+                                                                       pattern="[0-9]+(?:\.[0-9]+){3}(:[0-9]+)?">
+
                                                             </div>
+                                                        <!--    pattern="[a-zA-Z0-9\:\.\-_]+"> -->
                                                         </div>
                                                         <div class="form-group">
                                                             <label class="col-sm-4 control-label">{% trans "Username" %}</label>
@@ -279,7 +282,7 @@
 
                                 <div class="col-sm-6">
                                     <input type="text" name="name" class="form-control" placeholder="Label Name"
-                                           maxlength="20" required pattern="[a-z0-9\.\-_]+">
+                                           maxlength="20" required pattern="[a-zA-Z0-9\.\-_]+">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -288,7 +291,7 @@
                                 <div class="col-sm-6">
                                     <input type="text" name="hostname" class="form-control"
                                            placeholder="{% trans "FQDN or IP Address" %}" required
-                                           pattern="[a-z0-9\.\-_]+">
+                                           pattern="[a-zA-Z0-9\.\-_]+">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -324,7 +327,7 @@
 
                                 <div class="col-sm-6">
                                     <input type="text" name="name" class="form-control" placeholder="Label Name"
-                                           maxlength="20" required pattern="[a-z0-9\.\-_]+">
+                                           maxlength="20" required pattern="[a-zA-Z0-9\.\-_]+">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -333,7 +336,8 @@
                                 <div class="col-sm-6">
                                     <input type="text" name="hostname" class="form-control"
                                            placeholder="{% trans "FQDN or IP Address" %}" required
-                                           pattern="[a-z0-9\:\.\-_]+">
+                                           pattern="[0-9]+(?:\.[0-9]+){3}(:[0-9]+)?">
+                                          <!-- pattern="[a-zA-Z0-9\:\.\-_]+"> -->
                                 </div>
                             </div>
                             <div class="form-group">
@@ -359,7 +363,7 @@
 
                                 <div class="col-sm-6">
                                     <input type="text" name="name" class="form-control" placeholder="Label Name"
-                                           maxlength="20" required pattern="[a-z0-9\.\-_]+">
+                                           maxlength="20" required pattern="[a-zA-Z0-9\.\-_]+">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -368,7 +372,7 @@
                                 <div class="col-sm-6">
                                     <input type="text" name="hostname" class="form-control"
                                            placeholder="{% trans "FQDN or IP Address" %}" required
-                                           pattern="[a-z0-9\.\-_]+">
+                                           pattern="[a-zA-Z0-9\.\-_]+">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -402,7 +406,7 @@
 
                                 <div class="col-sm-6">
                                     <input type="text" name="name" class="form-control" placeholder="Label Name"
-                                           maxlength="20" required pattern="[a-z0-9\.\-_]+">
+                                           maxlength="20" required pattern="[a-zA-Z0-9\.\-_]+">
                                 </div>
                             </div>
                             <div class="modal-footer">
