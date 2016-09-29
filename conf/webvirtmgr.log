@@ -1,0 +1,3 @@
+192.168.0.198 - - [29/Sep/2016:19:10:13] "GET / HTTP/1.0" 302 - "http://192.168.0.190/infrastructure/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36"
+192.168.0.198 - - [29/Sep/2016:19:10:13] "GET /servers/ HTTP/1.0" 200 - "http://192.168.0.190/infrastructure/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36"
+192.168.0.198 - - [29/Sep/2016:19:10:15] "GET /infrastructure/ HTTP/1.0" 200 - "http://192.168.0.190/servers/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36"

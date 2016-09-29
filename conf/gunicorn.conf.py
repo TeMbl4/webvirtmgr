@@ -163,8 +163,8 @@ tmp_upload_dir = None
 #       A string of "debug", "info", "warning", "error", "critical"
 #
 
-logfile = '-'
-loglevel = 'info'
+logfile = '/var/log/webvirtmgr/webvirtmgr.log'
+loglevel = 'error'
 accesslog = '-'
 
 #
@@ -203,8 +203,8 @@ proc_name = None
 # def post_fork(server, worker):
 #     pass
 #
-# def pre_fork(server, worker):
-#     pass
+def pre_fork(server, worker):
+     pass
 #
 # def pre_exec(server):
 #     pass
