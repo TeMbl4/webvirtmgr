@@ -2,6 +2,7 @@
 {% load i18n %}
 {% block title %}{% trans "Infrastructure" %}{% endblock %}
 {% block content %}
+<!--    <div class="row box"> -->
      <div class="box">
         <div class="col-xs-12" role="main">
             <div class="page-header page-header__filter clearfix">
@@ -34,9 +35,10 @@
                 <table class="table table-hover">
                     <thead>
                         <tr>
-                            <th style="width: 10px;">#</th>
+<!--                            <th style="width: 10px;">#</th> -->
                             <th>{% trans "Hostname / VMs" %}</th>
                             <th>{% trans "Status" %}</th>
+                            <th>{% trans "Count VMs" %}</th>
                             <th style="text-align:center;width:50px;">{% trans "VCPUs" %}</th>
                             <th style="text-align:center;width:100px;">{% trans "Memory" %}</th>
                             <th style="text-align:center;width:80px;">{% trans "Usage" %}</th>
@@ -46,7 +48,6 @@
                         {% for host, vms in hosts_vms.items %}
                             <tr style="font-size:18px;">
 <!--                                <td>{{ forloop.counter }}</td> -->
-                                <td></td>
                                 <td><a href="{% url 'instances' host.0 %}">{{ host.1 }}</a></td>
                                 <td>{% ifequal host.2 1 %}<span class="label label-success">{% trans "Active" %}
                                     </span>{% endifequal %}
@@ -55,6 +56,11 @@
                                     {% ifequal host.2 3 %}<span class="label label-danger">{% trans "Connection Failed" %}
                                         </span>{% endifequal %}
                                 </td>
+<!--                                {% if vms %}
+                                {% for vm, info in vms.items %}
+                                    <td style="text-align:center;">{{ forloop.counter }}</td>
+                                {% endfor %}
+                                {% endif %} -->
                                 <td style="text-align:center;">{{ host.3 }}</td>
                                 <td style="text-align:center;">{{ host.4|filesizeformat }}</td>
                                 <td style="text-align:center;">{{ host.5 }}%</td>
@@ -63,8 +69,8 @@
                                 {% for vm, info in vms.items %}	
                                         <tr data-status="{{ info.0 }}">
                                         <td></td>
-<!--                                        <td>{{ forloop.counter }} &emsp; <a href="{% url 'instance' host.0 vm %}">{{ vm }}</a></td> -->
-                                        <td>&emsp; - <a href="{% url 'instance' host.0 vm %}">{{ vm }}</a></td>
+                                        <td>{{ forloop.counter.split(" ") }} &emsp; <a
+                                                href="{% url 'instance' host.0 vm %}">{{ vm }}</a></td>
                                         <td>{% ifequal info.0 1 %}<span class="label label-success">{% trans "Running" %}
                                             </span>{% endifequal %}
                                             {% ifequal info.0 3 %}<span class="label label-warning">{% trans "Suspend" %}

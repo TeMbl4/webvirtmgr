@@ -144,5 +144,5 @@ def infrastructure(request):
                 hosts_vms[host.id, host.name, status, 0, 0, 0] = None
         else:
             hosts_vms[host.id, host.name, 2, 0, 0, 0] = None
-
+        
     return render_to_response('infrastructure.html', locals(), context_instance=RequestContext(request))
