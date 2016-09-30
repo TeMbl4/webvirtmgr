@@ -22,7 +22,6 @@ def index(request):
     else:
         return HttpResponseRedirect(reverse('servers_list'))
 
-
 def servers_list(request):
     """
     Servers page.

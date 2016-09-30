@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% trans "Users" %}{% endblock %}
+{% block content %}
+     <div class="box">
+        <div class="col-xs-12" role="main">
+
+            <div class="page-header">
+                <a data-toggle="modal" href="#addUser"
+                   class="btn btn-sm btn-success pull-right">{% trans "Add User" %}</a>
+                <h1>{% trans "Web Users" %}</h1>
+            </div>
+
+            </div>
+            {% if webusers %}
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th style="text-align:left;">{% trans "Name" %}</th>
+                            <th style="text-align:center;">{% trans "E-mail" %}</th>
+                            <th style="text-align:center;width:70px;">{% trans "Permissions" %}</th>
+                            <th style="text-align:center;width:100px;">{% trans "Active" %}</th>
+                            <th style="text-align:center;width:260px;">{% trans "Date" %}</th>
+                            <th style="text-align:center;width:70px;">{% trans "Delete" %}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for id,username,email,asroot,active,date in webusers %}
+                                <tr>
+	                            <td style="text-align:left;">{{ username }}</td>
+                                    <td style="text-align:center;">{{ email }}</td>
+				    <td>{% ifequal asroot 1 %}
+					    <span class="label label-success">{% trans "as root" %}
+	                                    </span>{% endifequal %}
+    	                                {% ifequal asroot 0 %}<span class="label label-danger">{% trans "as user" %}
+        	                            </span>{% endifequal %}
+                            	    </td>
+				    <td>{% ifequal active 1 %}
+					    <span class="label label-success">{% trans "active" %}
+	                                    </span>{% endifequal %}
+    	                                {% ifequal active 0 %}<span class="label label-danger">{% trans "deactive" %}
+        	                            </span>{% endifequal %}
+                            	    </td>
+    	                            <td style="text-align:center;">{{ date }}</td>
+    	                            <td style="text-align:center;">
+        	                            <form action="" method="post" role="form">{% csrf_token %}
+						    <input type="hidden" name="user_id" value="{{ id }}">
+                            			    <button type="submit" class="pull-right btn btn-xs btn-danger" name="user_del" onclick="return confirm('{% trans "Are you sure?" %}')">
+                		                            <span class="glyphicon glyphicon-trash"></span>
+                        		            </button>
+	                                    </form>
+				    </td>
+
+    	                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <div class="well">
+                    <h4>{% trans "You have no connection" %}</h4>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+    </div>
+
+{% endblock %}

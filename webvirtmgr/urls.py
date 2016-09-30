@@ -19,6 +19,9 @@ urlpatterns = patterns('',
     url(r'^instances/(\d+)/$', 'instance.views.instances', name='instances'),
     url(r'^secrets/(\d+)/$', 'secrets.views.secrets', name='secrets'),
     url(r'^console/$', 'console.views.console', name='console'),
+
+    url(r'^users/$', 'users.views.users', name='users'),
+
     url(r'^info/hostusage/(\d+)/$', 'hostdetail.views.hostusage', name='hostusage'),
     url(r'^info/insts_status/(\d+)/$', 'instance.views.insts_status', name='insts_status'),
     url(r'^info/inst_status/(\d+)/([\w\-\.]+)/$', 'instance.views.inst_status', name='inst_status'),
