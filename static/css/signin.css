@@ -1,13 +1,15 @@
 .form-signin{
     border-radius:3px; 
-    padding: 30px;
+/*    padding: 30px; */
+    padding: 10px;
     box-shadow:0 5px 5px #687374;
     background:#95a5a6;
     float:none;
     font-family:"Montserrat",sans-serif;
     min-width: 330px;
     max-width: 330px;
-    margin: 25% auto 0;
+/*    margin: 25% auto 0; */
+    margin: 15% auto 0;
 }
 
 .form-signin .form-signin-heading,

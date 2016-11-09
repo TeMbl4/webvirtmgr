@@ -5,6 +5,7 @@ from django.template import RequestContext
 from django.core.urlresolvers import reverse
 from libvirt import libvirtError
 
+from users.forms import UserForm
 
 def users(request):
     if not request.user.is_authenticated():
@@ -29,15 +30,10 @@ def users(request):
 		return HttpResponseRedirect(request.get_full_path())
 
         if 'user_add' in request.POST:
-            form = ComputeAddTcpForm(request.POST)
+            form = UserForm(request.POST)
             if form.is_valid():
-                data = form.cleaned_data
-                new_tcp_host = Compute(name=data['name'],
-                                       hostname=data['hostname'],
-                                       type=CONN_TCP,
-                                       login=data['login'],
-                                       password=data['password'])
-                new_tcp_host.save()
+		name = request.POST.get('name', '')
+		print(name)
                 return HttpResponseRedirect(request.get_full_path())
 
 
